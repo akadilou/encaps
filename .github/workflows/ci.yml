@@ -11,3 +11,5 @@ jobs:
       - run: cargo test -p cryq8
       - run: cargo install cargo-audit || true
       - run: cargo audit -D warnings || true
+      - run: cargo install cargo-deny || true
+      - run: cargo deny check || true
