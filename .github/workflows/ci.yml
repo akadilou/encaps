@@ -8,6 +8,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --release -p cryq8
       - run: cargo build --release -p cryq8_cli
+      - run: cargo build --release -p cryq8_ffi
       - run: cargo test -p cryq8
       - run: cargo install cargo-audit || true
       - run: cargo audit -D warnings || true
