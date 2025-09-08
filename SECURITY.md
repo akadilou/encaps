@@ -40,3 +40,9 @@ v1)
 - Metadata sanitize (filename). Never write plaintext outside explicit paths.
 - Tests: roundtrip + tamper. Fuzzing recommended before release.
 - Versioned format (v=1). Future upgrades MUST refuse unknown/weak params.
+## 🔑 PGP Key for Secure Reports                           
+
+For encrypted vulnerability disclosure, use our public key:
+
+- Fingerprint: `7C120867DE7EC797D23517C40691BB5B8505FC19`
+- Public key: [`SECURITY_PUBKEY.asc`](./SECURITY_PUBKEY.asc)
