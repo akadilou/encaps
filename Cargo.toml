@@ -1,0 +1,3 @@
+[workspace]
+members = ["cryq8","cryq8_cli"]
+resolver = "2"

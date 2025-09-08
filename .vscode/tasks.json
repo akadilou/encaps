@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build (lib + cli)",
+      "type": "shell",
+      "command": "cargo build --release -p cryq8 && cargo build --release -p cryq8_cli",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Test (lib)",
+      "type": "shell",
+      "command": "cargo test -p cryq8",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run CLI: encpwd (example)",
+      "type": "shell",
+      "command": "./target/release/cryq8_cli encpwd --password \"Fort!2025\" --inp doc.pdf --out doc.pdf.q8msg --mime application/pdf --filename doc.pdf",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run CLI: decpwd (example)",
+      "type": "shell",
+      "command": "./target/release/cryq8_cli decpwd --password \"Fort!2025\" --inp doc.pdf.q8msg --out doc_restored.pdf",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+name: ci
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  build-test-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release -p cryq8
+      - run: cargo build --release -p cryq8_cli
+      - run: cargo test -p cryq8
+      - run: cargo install cargo-audit || true
+      - run: cargo audit -D warnings || true

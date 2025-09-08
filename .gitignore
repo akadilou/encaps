@@ -1,0 +1,7 @@
+/target
+*.q8msg
+*.out
+*.out2
+*.pdf
+*.txt
+.DS_Store

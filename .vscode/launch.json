@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run cryq8_cli (args in .vscode/launch.json)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/target/release/cryq8_cli",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build (lib + cli)"
+    }
+  ]
+}
