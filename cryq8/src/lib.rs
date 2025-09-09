@@ -49,6 +49,7 @@ fn deframe(mut buf:Vec<u8>)->Result<Vec<u8>>{
 fn aad_pwd(v:u8,ts:i64,mime:&str,filename:&str,nonce_b64:&str,msg_id_b64:&str)->Vec<u8>{
   format!("v={}|mode={}|ts={}|mime={}|filename={}|nonce={}|msgid={}",v,MODE_PWD,ts,mime,filename,nonce_b64,msg_id_b64).into_bytes()
 }
+#[allow(clippy::too_many_arguments)]
 fn aad_kp(v:u8,ephem_b64:&str,kid:&str,ts:i64,mime:&str,filename:&str,nonce_b64:&str,msg_id_b64:&str)->Vec<u8>{
   format!("v={}|mode={}|ephem={}|kid={}|ts={}|mime={}|filename={}|nonce={}|msgid={}",v,MODE_KP,ephem_b64,kid,ts,mime,filename,nonce_b64,msg_id_b64).into_bytes()
 }
@@ -196,6 +197,7 @@ pub fn encrypt_password_kat_with(password:&str,plaintext:&[u8],mime:Option<&str>
   Ok(Capsule{v:V,mode:MODE_PWD.into(),nonce_b64:n_b64,kdf:Some(Kdf{alg:"argon2id".into(),t:ARGON_T,m:ARGON_M_KIB,p:ARGON_P,salt_b64:b64e(&salt)}),meta,msg_id_b64:id_b64,ct_b64:b64e(&ct)})
 }
 
+#[allow(clippy::too_many_arguments)]
 pub fn encrypt_keypair_kat_with(eph_sec_bytes:[u8;32],recipient_x25519_pub:&[u8;32],plaintext:&[u8],mime:Option<&str>,filename:Option<&str>,nonce_bytes:[u8;12],msg_id:[u8;16],sign_ed25519_priv:Option<&[u8;32]>)->Result<CapsuleKp>{
   let eph_sec=X25519Secret::from(eph_sec_bytes);
   let eph_pub=X25519Public::from(&eph_sec);

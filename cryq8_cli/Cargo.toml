@@ -5,6 +5,11 @@ license = "MIT OR Apache-2.0"
 edition = "2021"
 
 [dependencies]
+uuid = { version = "1", features = ["v4"] }
+
+qrcode = "0.13"
+image = { version = "0.24", default-features = false, features=["png","jpeg"] }
+
 cryq8 = { path = "../cryq8" }
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
@@ -16,3 +21,12 @@ ed25519-dalek = { version = "2", features = ["rand_core"] }
 rand = "0.8"
 sha2 = "0.10"
 hex = "0.4"
+
+rqrr = "0.6"
+
+[dev-dependencies]
+tempfile = "3"
+
+[[bin]]
+name = "cryq8_cli"
+path = "src/main.rs"

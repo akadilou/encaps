@@ -1,3 +1,15 @@
 [workspace]
 members = ["cryq8","cryq8_cli", "cryq8_ffi"]
 resolver = "2"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+
+[profile.bench]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
