@@ -5,3 +5,11 @@
 *.pdf
 *.txt
 .DS_Store
+
+# ignore local artifacts
+/encaps/
+/qrs/
+*.q8msg
+*.out
+*.png
+big.txt
